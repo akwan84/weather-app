@@ -1,3 +1,5 @@
+import countryCodes from './CountryCodes.json';
+
 const LocationList = ({ data }) => {
     const renderItems = () => {
         const results = [];

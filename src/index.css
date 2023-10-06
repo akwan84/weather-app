@@ -23,3 +23,35 @@ code {
 .location {
   height: 50px;
 }
+
+.header {
+  height: 100px;
+  width: 100%;
+  background-color: blue;
+  display: flex;
+  margin:auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav {
+  height: 50px;
+  width: 100%;
+  background-color: #aaaaaa;
+}
+
+#addLocationButton {
+  height: 50px;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+.feed {
+  height: 70vh;
+  width:90%;
+  margin-left: 5%;
+  margin-top: 20px;
+  border: 1px solid;
+}
