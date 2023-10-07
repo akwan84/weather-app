@@ -2,10 +2,19 @@ const LocationForm = ({ handleSubmit, setCity, setState, setCountry }) => {
     return(
         <div>
             <form className="locationForm" onSubmit={(e) => handleSubmit(e)}>
+                <label className="locationFormLabel">City</label>
+                <br/>
                 <input id="city" onChange={(e) => {setCity(e.target.value)}}></input>
+                <br/>
+                <label className="locationFormLabel">State (If Applicable)</label>
+                <br/>
                 <input id="state" onChange={(e) => {setState(e.target.value)}}></input>
+                <br/>
+                <label className="locationFormLabel">Country</label>
+                <br/>
                 <input id="country" onChange={(e) => {setCountry(e.target.value)}}></input>
-                <button type="submit">Submit</button>
+                <br/>
+                <button id="locationFormSubmit" type="submit">Submit</button>
             </form>
         </div>
     )

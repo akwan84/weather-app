@@ -25,22 +25,26 @@ function App() {
 
   const [geoData, setGeoData] = useState([]);
   const [locations, setLocations] = useState(
-    [{
-      city:"Toronto",
-      state:"Ontario",
-      country:"Canada",
-      temp:"24",
-      condition:"partly cloudy"
-    },
-    {
-      city:"New York",
-      state:"New York",
-      country:"USA",
-      temp:"25",
-      condition:"sunny"
-    }
-  ]
-  )
+    [
+      {
+        id: "1",
+        city:"Toronto",
+        state:"Ontario",
+        country:"Canada",
+        temp:"24",
+        condition:"partly cloudy"
+      },
+      {
+        id: "2",
+        city:"New York",
+        state:"New York",
+        country:"USA",
+        temp:"25",
+        condition:"sunny"
+      }
+    ]
+  );
+
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [country, setCountry] = useState('');
@@ -64,20 +68,6 @@ function App() {
       console.log(err.message);
     }
   }
-
-  /*return (
-    <div className="App">
-      <LocationForm
-        setCity = {setCity}
-        setState = {setState}
-        setCountry = {setCountry}
-        handleSubmit = {handleSubmit}
-      />
-      <LocationList
-        data = {geoData}
-      />
-    </div>
-  );*/
 
   return (
     <div className="App">
