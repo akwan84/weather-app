@@ -8,6 +8,8 @@ const Feed = ({ locations }) => {
                     city={location.city}
                     state={location.state}
                     country={location.country}
+                    temp={location.temp}
+                    condition={location.condition}
                 />
             ))}
         </div>

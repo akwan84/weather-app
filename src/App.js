@@ -1,7 +1,7 @@
 import geoApi from './geoApi/geoApi';
 import { useState, useEffect } from 'react';
-import LocationForm from './LocationForm';
-import LocationList from './LocationList';
+import LocationForm from './locationPage/LocationForm';
+import LocationList from './locationPage/LocationList';
 import Header from './static/Header';
 import Feed from './home/Feed';
 import { Route, Switch, useHistory } from 'react-router-dom';
@@ -28,8 +28,18 @@ function App() {
     [{
       city:"Toronto",
       state:"Ontario",
-      country:"Canada"
-    }]
+      country:"Canada",
+      temp:"24",
+      condition:"partly cloudy"
+    },
+    {
+      city:"New York",
+      state:"New York",
+      country:"USA",
+      temp:"25",
+      condition:"sunny"
+    }
+  ]
   )
   const [city, setCity] = useState('');
   const [state, setState] = useState('');

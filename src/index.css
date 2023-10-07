@@ -54,4 +54,64 @@ code {
   margin-left: 5%;
   margin-top: 20px;
   border: 1px solid;
+  overflow-y: auto;
+}
+
+.location{
+  width:96%;
+  margin-left:2%;
+  margin-top:1vh;
+  height: 100px;
+  background-color: #aaaaaa;
+  border-radius: 15px;
+}
+
+.locationCity{
+  width:60%;
+  height:100%;
+  //background-color: blue;
+  float:left;
+}
+
+.locationTemp{
+  width:20%;
+  height:100%;
+  float:left;
+  display: flex;
+  align-items: center;
+}
+
+.locationTemp h1 {
+  width:100%;
+  text-align: right;
+}
+
+.sunnyIcon{
+  width:20%;
+  height:100%;
+  float:left;
+  background-image: url('images/sunny.png');
+  background-repeat: no-repeat;
+  background-position: 2px -6px;
+  background-size:cover;
+}
+
+.cloudyIcon{
+  width:20%;
+  height:100%;
+  float:left;
+  background-image: url('images/cloudy.png');
+  background-repeat: no-repeat;
+  background-position: 2px -9px;
+  background-size:cover;
+}
+
+.partlyCloudyIcon{
+  width:20%;
+  height:100%;
+  float:left;
+  background-image: url('images/partly-cloudy.png');
+  background-repeat: no-repeat;
+  background-position: 2px -9px;
+  background-size:cover;
 }
