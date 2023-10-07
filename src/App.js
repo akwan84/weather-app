@@ -27,19 +27,19 @@ function App() {
   const [locations, setLocations] = useState(
     [
       {
-        id: "1",
+        id: 1,
         city:"Toronto",
         state:"Ontario",
         country:"Canada",
-        temp:"24",
+        temp:24,
         condition:"partly cloudy"
       },
       {
-        id: "2",
+        id: 2,
         city:"New York",
         state:"New York",
         country:"USA",
-        temp:"25",
+        temp:25,
         condition:"sunny"
       }
     ]
@@ -69,12 +69,31 @@ function App() {
     }
   }
 
+  const toAddLocationPage = () => {
+    history.push("/add-location");
+    setGeoData([]);
+  }
+
+  const addLocation = (city, state, country) => {
+    const newLocation = {
+      id: locations[locations.length-1].id + 1, 
+      city: city,
+      state: state,
+      country: country,
+      temp: 21,
+      condition: "sunny"
+    }
+    const locationsCopy = [...locations, newLocation];
+    setLocations(locationsCopy);
+    history.push("/");
+  }
+
   return (
     <div className="App">
       <Header title="World Weather" goHome={goHome}/>
       <Switch>
         <Route exact path="/">
-          <button id="addLocationButton" onClick={() => history.push("/add-location")}>Add Location</button>
+          <button id="addLocationButton" onClick={() => toAddLocationPage()}>Add Location</button>
           <Feed locations={locations}/>
         </Route>
         <Route exact path="/add-location">
@@ -86,6 +105,7 @@ function App() {
           />
           <LocationList
             data = {geoData}
+            addLocation={addLocation}
           />
         </Route>
       </Switch>
