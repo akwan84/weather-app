@@ -7,6 +7,7 @@ import Feed from './home/Feed';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import dailyWeatherApi from './dailyWeatherApi/dailyWeatherApi';
 import WeatherPage from './weather/WeatherPage';
+import Footer from './static/Footer';
 
 /**
  * TODO:
@@ -153,7 +154,7 @@ function App() {
           />
         </Route>
         <Route exact path="/weather/:id">
-          <WeatherPage/>
+          <WeatherPage data={locations}/>
         </Route>
       </Switch>
     </div>

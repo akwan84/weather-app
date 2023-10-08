@@ -14,7 +14,7 @@ const LocationList = ({ data, addLocation }) => {
     }
 
     return (
-        <div>
+        <div className="locationList">
             {renderItems()}
         </div>
     )
