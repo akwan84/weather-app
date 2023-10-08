@@ -24,7 +24,8 @@ code {
 .header {
   height: 100px;
   width: 100%;
-  background-color: blue;
+  background-color: #070e2b;
+  color: white;
   display: flex;
   margin:auto;
   align-items: center;
@@ -37,7 +38,27 @@ code {
   background-color: #aaaaaa;
 }
 
+button{
+  background-color: white;
+  border-color: #070e2b;
+  color: #070e2b;
+}
+
+button:hover{
+  background-color: #070e2b;
+  border-color: white;
+  color: white;
+}
+
 #addLocationButton {
+  height: 50px;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+#addLocationButton:hover {
   height: 50px;
   width: 90%;
   margin-left: 5%;
@@ -57,7 +78,8 @@ code {
   width: 94%;
   height: 4vh;
   margin-left: 3%;
-  border:1px solid;
+  border:2px solid;
+  border-color: #070e2b;
   padding:1px;
   font-size: 3vh;
 }
@@ -71,12 +93,12 @@ code {
 }
 
 .locationSearchResult{
-  background-color: #aaaaaa;
+  background-color: #070e2b;
+  color:white;
   width: 94%;
   margin-left: 3%;
   height: 8vh;
   margin-top: 1vh;
-  border-radius: 15px;
 }
 
 .locationSearchResultText{
@@ -93,21 +115,21 @@ code {
   height:6vh;
   margin-top: 1vh;
   font-size: 3vh;
-  border-radius: 10px;
 }
 
 .locationFormLabel{
   margin: 3%;
   line-height: 2em;
   font-size: 2.5vh;
+  color: #070e2b;
 }
 
 .location{
   width:100%;
   margin-top:1vh;
   height: 100px;
-  background-color: #aaaaaa;
-  border-radius: 15px;
+  background-color: #070e2b;
+  color: white;
 }
 
 .locationCity{
