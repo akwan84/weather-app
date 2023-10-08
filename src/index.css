@@ -219,9 +219,9 @@ button:hover{
 }
 
 .weatherPage{
-  width: 90%;
+  width: 95%;
   height: 70vh;
-  margin: 5%;
+  margin: 2.5%;
   border: 1px solid;
 }
 
@@ -229,4 +229,34 @@ button:hover{
   width: 100%;
   height: 11.5vh;
   background-color: #070e2b;
+}
+
+.forecastDay{
+  height: 25vh;
+  width: 19%;
+  margin: 0.5%;
+  background-color: #070e2b;
+  float: left;
+  color: white;
+}
+
+.weatherPageHeader{
+  height: 10vh;
+  width: 39%;
+  margin: 0.5%;
+  float: left;
+}
+
+.weatherPageTemperature{
+  height: 10vh;
+  width: 19%;
+  margin: 0.5%;
+  float: left;
+}
+
+.weatherPageCondition{
+  height: 10vh;
+  width: 24%;
+  margin: 0.5%;
+  float: left;
 }

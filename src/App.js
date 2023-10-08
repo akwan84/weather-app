@@ -38,6 +38,7 @@ function App() {
         lat: 43.653225,
         long: -79.383186,
         temp: 0,
+        feelsLike: 0,
         condition:"",
         description: ""
       },
@@ -49,6 +50,7 @@ function App() {
         lat: 40.712776,
         long: -74.005974,
         temp: 0,
+        feelsLike: 0,
         condition:"",
         description: ""
       }
@@ -95,6 +97,7 @@ function App() {
         locations2[i].temp = parseInt(responseData["main"]["temp"] - 273.15);
         locations2[i].condition = responseData["weather"][0]["main"];
         locations2[i].description = responseData["weather"][0]["description"];
+        locations2[i].feelsLike = parseInt(responseData["main"]["feels_like"] - 273.15);
         //locations2[i].condition = "Clouds";
         //locations2[i].description = "few clouds: 11-25%"
       }catch(err){
