@@ -36,7 +36,8 @@ function App() {
         lat: 43.653225,
         long: -79.383186,
         temp: 0,
-        condition:"partly cloudy"
+        condition:"",
+        description: ""
       },
       {
         id: 2,
@@ -46,12 +47,13 @@ function App() {
         lat: 40.712776,
         long: -74.005974,
         temp: 0,
-        condition:"sunny"
+        condition:"",
+        description: ""
       }
     ]
   );
 
-  const [locationsCopy, setLocationsCopy] = useState([]);
+  const [locationsCopy, setLocationsCopy] = useState([]); //weird workaround to prevent infinite loop in handleSubmit by updating locations
 
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
@@ -85,6 +87,10 @@ function App() {
         const response = await dailyWeatherApi.get(`/weather?lat=${locationsCopy[i].lat}&lon=${locationsCopy[i].long}&appid=${apiKey}`)
         const responseData = response.data;
         locations2[i].temp = parseInt(responseData["main"]["temp"] - 273.15);
+        locations2[i].condition = responseData["weather"][0]["main"];
+        locations2[i].description = responseData["weather"][0]["description"];
+        //locations2[i].condition = "Clouds";
+        //locations2[i].description = "few clouds: 11-25%"
       }catch(err){
         console.log(err.message);
       }

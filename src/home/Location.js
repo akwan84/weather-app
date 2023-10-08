@@ -1,4 +1,5 @@
-const Location = ({ city, state, country, temp, condition }) => {
+const Location = ({ city, state, country, temp, condition, description }) => {
+    //still need partly cloudy icon condition
     return (
         <div className="location">  
             <div className="locationCity">
@@ -9,12 +10,21 @@ const Location = ({ city, state, country, temp, condition }) => {
                 <h1 style={{textAlign:"right", margin:0}}>{`${temp}\u00B0C`}</h1>
             </div>
             {
-                (condition === 'sunny') ? 
+                (condition === 'Clear') ? 
                     <div className="sunnyIcon"/>
-                : (condition === 'cloudy') ? 
-                    <div className="cloudyIcon"/>
-                : 
-                    <div className="partlyCloudyIcon"/>
+                : (condition === 'Clouds') ? 
+                    (description === "few clouds: 11-25%") ? 
+                        <div className="partlyCloudyIcon"/>
+                    :
+                        <div className="cloudyIcon"/>
+                : (condition === 'Thunderstorm') ? 
+                    <div className="thunderstormIcon"/>
+                : (condition === "Drizzle" || condition === "Rain") ? 
+                    <div className="rainIcon"/>
+                : (condition === "Snow") ? 
+                    <div className="snowIcon"/>
+                :
+                    <div className="windIcon"/>   
             }
             
         </div>

@@ -159,3 +159,43 @@ code {
   background-position: center center;
   background-size:contain;
 }
+
+.thunderstormIcon{
+  width:10%;
+  height:100%;
+  float:left;
+  background-image: url('images/thunderstorm.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size:contain;
+}
+
+.rainIcon{
+  width:10%;
+  height:100%;
+  float:left;
+  background-image: url('images/rainy.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size:contain;
+}
+
+.snowIcon{
+  width:10%;
+  height:100%;
+  float:left;
+  background-image: url('images/snowy.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size:contain;
+}
+
+.windIcon{
+  width:10%;
+  height:100%;
+  float:left;
+  background-image: url('images/windy.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size:contain;
+}

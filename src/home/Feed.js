@@ -10,6 +10,7 @@ const Feed = ({ locations }) => {
                     country={location.country}
                     temp={location.temp}
                     condition={location.condition}
+                    description={location.description}
                 />
             ))}
         </div>
