@@ -5,6 +5,7 @@ import LocationList from './locationPage/LocationList';
 import Header from './static/Header';
 import Feed from './home/Feed';
 import { Route, Switch, useHistory } from 'react-router-dom';
+import dailyWeatherApi from './dailyWeatherApi/dailyWeatherApi';
 
 /**
  * TODO:
@@ -18,6 +19,7 @@ import { Route, Switch, useHistory } from 'react-router-dom';
  * 
  * Potential Issues
  * - Feed size when shrinking page vertically
+ * - Need the page to change when temperatures are still being fetched
  * 
  */
 function App() {
@@ -31,7 +33,9 @@ function App() {
         city:"Toronto",
         state:"Ontario",
         country:"Canada",
-        temp:24,
+        lat: 43.653225,
+        long: -79.383186,
+        temp: 0,
         condition:"partly cloudy"
       },
       {
@@ -39,11 +43,15 @@ function App() {
         city:"New York",
         state:"New York",
         country:"USA",
-        temp:25,
+        lat: 40.712776,
+        long: -74.005974,
+        temp: 0,
         condition:"sunny"
       }
     ]
   );
+
+  const [locationsCopy, setLocationsCopy] = useState([]);
 
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
@@ -69,22 +77,47 @@ function App() {
     }
   }
 
+  const getDailyWeather = async () => {
+    const locations2 = [...locationsCopy];
+
+    for(let i = 0; i < locationsCopy.length; i++){
+      try{
+        const response = await dailyWeatherApi.get(`/weather?lat=${locationsCopy[i].lat}&lon=${locationsCopy[i].long}&appid=${apiKey}`)
+        const responseData = response.data;
+        locations2[i].temp = parseInt(responseData["main"]["temp"] - 273.15);
+      }catch(err){
+        console.log(err.message);
+      }
+    }
+    setLocations(locations2);
+  }
+
+  useEffect(() => {
+    setLocationsCopy(locations);
+  }, []);
+
+  useEffect(() => {
+    getDailyWeather();
+  }, [locationsCopy])
+
   const toAddLocationPage = () => {
     history.push("/add-location");
     setGeoData([]);
   }
 
-  const addLocation = (city, state, country) => {
+  const addLocation = (city, state, country, lat, long) => {
     const newLocation = {
       id: locations[locations.length-1].id + 1, 
       city: city,
       state: state,
       country: country,
-      temp: 21,
+      lat: lat,
+      long: long,
+      temp: 0,
       condition: "sunny"
     }
-    const locationsCopy = [...locations, newLocation];
-    setLocations(locationsCopy);
+    const updatedLocations = [...locations, newLocation];
+    setLocationsCopy(updatedLocations);
     history.push("/");
   }
 
