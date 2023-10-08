@@ -6,6 +6,7 @@ import Header from './static/Header';
 import Feed from './home/Feed';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import dailyWeatherApi from './dailyWeatherApi/dailyWeatherApi';
+import WeatherPage from './weather/WeatherPage';
 
 /**
  * TODO:
@@ -63,6 +64,10 @@ function App() {
   
   const goHome = () => {
     history.push("/");
+  }
+
+  const toWeatherPage = (id) => {
+    history.push(`weather/${id}`);
   }
 
   const handleSubmit = async (e) => {
@@ -133,7 +138,7 @@ function App() {
       <Switch>
         <Route exact path="/">
           <button id="addLocationButton" onClick={() => toAddLocationPage()}>Add Location</button>
-          <Feed locations={locations}/>
+          <Feed locations={locations} toWeatherPage={toWeatherPage}/>
         </Route>
         <Route exact path="/add-location">
           <LocationForm
@@ -146,6 +151,9 @@ function App() {
             data = {geoData}
             addLocation={addLocation}
           />
+        </Route>
+        <Route exact path="/weather/:id">
+          <WeatherPage/>
         </Route>
       </Switch>
     </div>

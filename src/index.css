@@ -30,6 +30,7 @@ code {
   margin:auto;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .nav {
@@ -42,12 +43,14 @@ button{
   background-color: white;
   border-color: #070e2b;
   color: #070e2b;
+  cursor: pointer;
 }
 
 button:hover{
   background-color: #070e2b;
   border-color: white;
   color: white;
+  cursor: pointer;
 }
 
 #addLocationButton {
@@ -130,6 +133,7 @@ button:hover{
   height: 100px;
   background-color: #070e2b;
   color: white;
+  cursor: pointer;
 }
 
 .locationCity{

@@ -1,7 +1,7 @@
-const Location = ({ city, state, country, temp, condition, description }) => {
+const Location = ({ id, city, state, country, temp, condition, description, toWeatherPage }) => {
     //still need partly cloudy icon condition
     return (
-        <div className="location">  
+        <div className="location" onClick={() => toWeatherPage(id)}>  
             <div className="locationCity">
                 <h1 style={{marginLeft:"10px", marginTop: "10px",paddingTop: "0px", marginBottom:"0px"}}>{city}</h1>
                 <p style={{marginLeft:"10px", paddingTop: "0px", marginBottom:"0px"}}>{`${state}, ${country}`}</p>
