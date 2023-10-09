@@ -1,5 +1,5 @@
+import WeatherIcon from "../other/WeatherIcon";
 const Location = ({ id, city, state, country, temp, condition, description, toWeatherPage }) => {
-    //still need partly cloudy icon condition
     return (
         <div className="location" onClick={() => toWeatherPage(id)}>  
             <div className="locationCity">
@@ -9,23 +9,7 @@ const Location = ({ id, city, state, country, temp, condition, description, toWe
             <div className="locationTemp">
                 <h1 style={{textAlign:"right", margin:0}}>{`${temp}\u00B0C`}</h1>
             </div>
-            {
-                (condition === 'Clear') ? 
-                    <div className="sunnyIcon"/>
-                : (condition === 'Clouds') ? 
-                    (description === "few clouds: 11-25%") ? 
-                        <div className="partlyCloudyIcon"/>
-                    :
-                        <div className="cloudyIcon"/>
-                : (condition === 'Thunderstorm') ? 
-                    <div className="thunderstormIcon"/>
-                : (condition === "Drizzle" || condition === "Rain") ? 
-                    <div className="rainIcon"/>
-                : (condition === "Snow") ? 
-                    <div className="snowIcon"/>
-                :
-                    <div className="windIcon"/>   
-            }
+            <WeatherIcon condition={condition} description={description} width={10} height={100} margin={0}/>
             
         </div>
     );

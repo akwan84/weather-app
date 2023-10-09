@@ -12,9 +12,18 @@ const Forecast = ({ lat, long }) => {
                 const results = [];
                 const response = await forecastApi.get(`/forecast?lat=${lat}&lon=${long}&appid=${apiKey}`)
                 const responseData = response.data;
-                for(let i = 0; i < 5; i++){
+                console.log(responseData.length);
+                for(let i = 0; i < 40; i+=8){
                     //results.push(<div className="forecastDay">{responseData["list"][i]["main"]["temp"]}</div>)
-                    results.push(parseInt(responseData["list"][i]["main"]["temp"] - 273.15));
+                    //results.push(parseInt(responseData["list"][i]["main"]["temp"] - 273.15));
+                    results.push(
+                        {
+                            "temp": parseInt(responseData["list"][i]["main"]["temp"] - 273.15),
+                            "date": responseData["list"][i]["dt"],
+                            "condition": responseData["list"][i]["weather"][0]["main"],
+                            "description": responseData["list"][i]["weather"][0]["description"]
+                        }
+                    );
                 }
                 setForecastData(results);
             }catch(err){
@@ -27,7 +36,7 @@ const Forecast = ({ lat, long }) => {
     return (
         <div>
             {forecastData.map(forecast => (
-                <ForecastDay temp={forecast} />
+                <ForecastDay temp={forecast["temp"]} date={forecast["date"]} condition={forecast["condition"]} description={forecast["description"]} />
             ))}
         </div>
     );

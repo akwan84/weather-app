@@ -149,8 +149,6 @@ button:hover{
 }
 
 .sunnyIcon{
-  width:10%;
-  height:100%;
   float:left;
   background-image: url('images/sunny.png');
   background-repeat: no-repeat;
@@ -159,8 +157,6 @@ button:hover{
 }
 
 .cloudyIcon{
-  width:10%;
-  height:100%;
   float:left;
   background-image: url('images/cloudy.png');
   background-repeat: no-repeat;
@@ -169,8 +165,6 @@ button:hover{
 }
 
 .partlyCloudyIcon{
-  width:10%;
-  height:100%;
   float:left;
   background-image: url('images/partly-cloudy.png');
   background-repeat: no-repeat;
@@ -179,8 +173,6 @@ button:hover{
 }
 
 .thunderstormIcon{
-  width:10%;
-  height:100%;
   float:left;
   background-image: url('images/thunderstorm.png');
   background-repeat: no-repeat;
@@ -199,8 +191,6 @@ button:hover{
 }
 
 .snowIcon{
-  width:10%;
-  height:100%;
   float:left;
   background-image: url('images/snowy.png');
   background-repeat: no-repeat;
@@ -209,8 +199,6 @@ button:hover{
 }
 
 .windIcon{
-  width:10%;
-  height:100%;
   float:left;
   background-image: url('images/windy.png');
   background-repeat: no-repeat;
@@ -238,6 +226,7 @@ button:hover{
   background-color: #070e2b;
   float: left;
   color: white;
+  text-align: center;
 }
 
 .weatherPageHeader{
