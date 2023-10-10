@@ -6,8 +6,8 @@ const ForecastDay = ({ temp, date, condition, description }) => {
     const dayOfWeek = DAYS[formattedDate.getDay()];
     return(
         <div className="forecastDay">
-            <h3>{dayOfWeek}</h3>
-            <h1>{`${temp}\u00B0C`}</h1>
+            <h3 className="weatherPageH3">{dayOfWeek}</h3>
+            <h1 className="weatherPageH1">{`${temp}\u00B0C`}</h1>
             <WeatherIcon condition={condition} description={description} width={50} height={50} margin={25}/>
         </div>
     );

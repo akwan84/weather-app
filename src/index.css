@@ -230,22 +230,30 @@ button:hover{
 }
 
 .weatherPageHeader{
-  height: 10vh;
-  width: 39%;
+  height: 12vh;
+  width: 49%;
   margin: 0.5%;
   float: left;
 }
 
 .weatherPageTemperature{
-  height: 10vh;
-  width: 19%;
+  height: 12vh;
+  width: 24%;
   margin: 0.5%;
   float: left;
 }
 
 .weatherPageCondition{
-  height: 10vh;
+  height: 12vh;
   width: 24%;
   margin: 0.5%;
   float: left;
+}
+
+.weatherPageH1{
+  font-size: 3vh;
+}
+
+.weatherPageH3{
+  font-size: 1.7vh;
 }
