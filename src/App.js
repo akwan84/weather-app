@@ -28,6 +28,8 @@ function App() {
   const history = useHistory();
 
   const [geoData, setGeoData] = useState([]);
+
+  //still needt to add rain/snow
   const [locations, setLocations] = useState(
     [
       {
@@ -40,7 +42,13 @@ function App() {
         temp: 0,
         feelsLike: 0,
         condition:"",
-        description: ""
+        description: "",
+        sunrise: 0,
+        sunset: 0,
+        pressure: 0,
+        humidity: 0,
+        windSpeed: 0,
+        windDir: 0
       },
       {
         id: 2,
@@ -52,7 +60,13 @@ function App() {
         temp: 0,
         feelsLike: 0,
         condition:"",
-        description: ""
+        description: "",
+        sunrise: 0,
+        sunset: 0,
+        pressure: 0,
+        humidity: 0,
+        windSpeed: 0,
+        windDir: 0
       }
     ]
   );
@@ -98,6 +112,12 @@ function App() {
         locations2[i].condition = responseData["weather"][0]["main"];
         locations2[i].description = responseData["weather"][0]["description"];
         locations2[i].feelsLike = parseInt(responseData["main"]["feels_like"] - 273.15);
+        locations2[i].sunrise = responseData["sys"]["sunrise"];
+        locations2[i].sunset = responseData["sys"]["sunset"];
+        locations2[i].pressure = responseData["main"]["pressure"];
+        locations2[i].humidity = responseData["main"]["humidity"];
+        locations2[i].windSpeed = responseData["wind"]["speed"];
+        locations2[i].windDir = responseData["wind"]["deg"];
         //locations2[i].condition = "Clouds";
         //locations2[i].description = "few clouds: 11-25%"
       }catch(err){
