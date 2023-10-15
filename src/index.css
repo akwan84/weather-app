@@ -210,7 +210,6 @@ button:hover{
   width: 95%;
   height: 70vh;
   margin: 2.5%;
-  border: 1px solid;
 }
 
 .footer{
@@ -256,4 +255,86 @@ button:hover{
 
 .weatherPageH3{
   font-size: 1.7vh;
+}
+
+.conditionWidget{
+  width: 33%;
+  height:11vh;
+  background-color: #9197ae;
+  float:left;
+}
+
+.currentConditions{
+  width:99%;
+  margin: 0.5%;
+  height:11vh;
+  display:flex;
+  justify-content: space-between;
+  float:left;
+}
+
+.conditionInfo{
+  width:70%;
+  height: 11vh;
+  float:left;
+}
+
+.sunriseIcon{
+  width: 30%;
+  height: 11vh;
+  float:left;
+  background-image: url('images/sunrise.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size:contain;
+}
+
+.sunsetIcon{
+  width: 30%;
+  height: 11vh;
+  float:left;
+  background-image: url('images/sunset.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size:contain;
+}
+
+.pressureIcon{
+  width: 30%;
+  height: 11vh;
+  float:left;
+  background-image: url('images/pressure.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size:contain;
+}
+
+.humidityIcon{
+  width: 30%;
+  height: 11vh;
+  float:left;
+  background-image: url('images/humidity.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size:contain;
+}
+
+.windConditionIcon{
+  width: 30%;
+  height: 11vh;
+  float:left;
+  background-image: url('images/windy.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size:contain;
+}
+
+.precipitationIcon{
+  width: 30%;
+  height: 11vh;
+  float:left;
+  background-image: url('images/rainy.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size:contain;
 }

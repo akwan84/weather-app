@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import Forecast from './Forecast';
+import ConditionWidget from './ConditionWidget';
 
 const WeatherPage = ({ data }) => {
     const degreeToCompassDirection = (degree) => {
@@ -32,11 +33,17 @@ const WeatherPage = ({ data }) => {
                 <h3 className="weatherPageH3">{location.description}</h3>
             </div>
             <Forecast lat={location.lat} long={location.long}/>
-            <h3>Sunrise: {sunriseTimeInAMPM}</h3>
-            <h3>Sunset: {sunsetTimeInAMPM}</h3>
-            <h3>Pressure: {location.pressure}</h3>
-            <h3>Humidity: {location.humidity}</h3>
-            <h3>Wind: {location.windSpeed} {direction}</h3>
+            <div className="conditionHeader"></div>
+            <div className="currentConditions">
+                <ConditionWidget icon="sunriseIcon" condition="Sunrise" value={sunriseTimeInAMPM}/>
+                <ConditionWidget icon="sunsetIcon" condition="Sunset" value={sunsetTimeInAMPM}/>
+                <ConditionWidget icon="pressureIcon" condition="Pressure" value={`${location.pressure} hPa`}/>
+            </div>
+            <div className="currentConditions">
+                <ConditionWidget icon="humidityIcon" condition="Humidity" value={`${location.humidity} %`}/>
+                <ConditionWidget icon="windConditionIcon" condition="Wind" value={`${parseInt(location.windSpeed * 3.6)} km/h ${direction}`}/>
+                <ConditionWidget icon="precipitationIcon" condition="Precipitation" value={`TBD`}/>
+            </div>
         </div>
     );
 }

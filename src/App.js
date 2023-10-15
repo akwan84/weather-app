@@ -118,7 +118,7 @@ function App() {
         locations2[i].humidity = responseData["main"]["humidity"];
         locations2[i].windSpeed = responseData["wind"]["speed"];
         locations2[i].windDir = responseData["wind"]["deg"];
-        //locations2[i].condition = "Clouds";
+        //locations2[i].condition = "Snow";
         //locations2[i].description = "few clouds: 11-25%"
       }catch(err){
         console.log(err.message);
