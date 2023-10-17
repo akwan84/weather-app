@@ -373,3 +373,25 @@ button:hover{
   color: white;
   cursor: pointer;
 }
+
+.deleteVerification{
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 5vh;
+  height: 20vh;
+  background-color: #070e2b;
+  color: white;
+}
+
+.innerDeleteVerification{
+  width: 90%;
+  height: 16vh;
+  margin-left: 5%;
+  line-height: 5em;
+}
+
+.deleteVerificationButton{
+  width: 45%;
+  height: 4vh;
+  font-size: 3vh;
+}

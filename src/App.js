@@ -11,11 +11,10 @@ import Footer from './static/Footer';
 
 /**
  * TODO:
- * - Add delete button to each location
- * - Add delete verification
  * - Add search bar in home page
  * - Add local time on home page
  * - Apply time offset to data
+ * - Change page behaviour when page is loading
  * - Add setting to change to imperical units (be careful of rounding)
  *    - Can make a toggle next to the search bar
  * - Deal with the bug when reloading weather page
@@ -76,6 +75,7 @@ function App() {
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [country, setCountry] = useState('');
+  const [deleteClicked, setDeleteClicked] = useState(false);
 
   const apiKey = process.env.REACT_APP_API_KEY;
   
@@ -136,6 +136,7 @@ function App() {
       }
     }
     setLocationsCopy(newLocations);
+    setDeleteClicked(false);
     history.push("/");
   } 
 
@@ -189,7 +190,7 @@ function App() {
           />
         </Route>
         <Route exact path="/weather/:id">
-          <WeatherPage data={locations} handleDelete={handleDelete}/>
+          <WeatherPage data={locations} handleDelete={handleDelete} deleteClicked={deleteClicked} setDeleteClicked={setDeleteClicked}/>
         </Route>
       </Switch>
     </div>
