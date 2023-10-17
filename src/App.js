@@ -11,8 +11,8 @@ import Footer from './static/Footer';
 
 /**
  * TODO:
- * - Add visibility icon
  * - Add delete button to each location
+ * - Add delete verification
  * - Add search bar in home page
  * - Add local time on home page
  * - Apply time offset to data
@@ -28,7 +28,6 @@ function App() {
 
   const [geoData, setGeoData] = useState([]);
 
-  //still needt to add rain/snow
   const [locations, setLocations] = useState(
     [
       {
@@ -129,6 +128,17 @@ function App() {
     setLocations(locations2);
   }
 
+  const handleDelete = (id) => {
+    const newLocations = [];
+    for(let i = 0; i < locations.length; i++){
+      if(locations[i].id !== id){
+        newLocations.push(locations[i]);
+      }
+    }
+    setLocationsCopy(newLocations);
+    history.push("/");
+  } 
+
   useEffect(() => {
     setLocationsCopy(locations);
   }, []);
@@ -179,7 +189,7 @@ function App() {
           />
         </Route>
         <Route exact path="/weather/:id">
-          <WeatherPage data={locations} />
+          <WeatherPage data={locations} handleDelete={handleDelete}/>
         </Route>
       </Switch>
     </div>

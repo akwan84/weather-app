@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import Forecast from './Forecast';
 import ConditionWidget from './ConditionWidget';
 
-const WeatherPage = ({ data }) => {
+const WeatherPage = ({ data, handleDelete }) => {
     const degreeToCompassDirection = (degree) => {
         const directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
         const index = Math.round(degree / 45) % 8; // Map degrees to index
@@ -35,7 +35,7 @@ const WeatherPage = ({ data }) => {
             <Forecast lat={location.lat} long={location.long}/>
             <br/>
             <div className="conditionHeader">
-                <h1 className="weatherPageH1" style={{textAlign:"center"}}>Conditions</h1>
+                <h1 className="weatherPageH1" style={{marginLeft:"0.5%"}}>Conditions</h1>
             </div>
             <div className="currentConditions">
                 <ConditionWidget icon="sunriseIcon" condition="Sunrise" value={sunriseTimeInAMPM}/>
@@ -47,6 +47,7 @@ const WeatherPage = ({ data }) => {
                 <ConditionWidget icon="windConditionIcon" condition="Wind" value={`${parseInt(location.windSpeed * 3.6)} km/h ${direction}`}/>
                 <ConditionWidget icon="visibilityIcon" condition="Visibility" value={`${location.visibility} km`}/>
             </div>
+            <button className="deleteButton" onClick={() => handleDelete(location.id)}>Delete</button>
         </div>
     );
 }
