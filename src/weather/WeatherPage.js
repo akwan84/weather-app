@@ -33,7 +33,10 @@ const WeatherPage = ({ data }) => {
                 <h3 className="weatherPageH3">{location.description}</h3>
             </div>
             <Forecast lat={location.lat} long={location.long}/>
-            <div className="conditionHeader"></div>
+            <br/>
+            <div className="conditionHeader">
+                <h1 className="weatherPageH1" style={{textAlign:"center"}}>Conditions</h1>
+            </div>
             <div className="currentConditions">
                 <ConditionWidget icon="sunriseIcon" condition="Sunrise" value={sunriseTimeInAMPM}/>
                 <ConditionWidget icon="sunsetIcon" condition="Sunset" value={sunsetTimeInAMPM}/>
@@ -42,7 +45,7 @@ const WeatherPage = ({ data }) => {
             <div className="currentConditions">
                 <ConditionWidget icon="humidityIcon" condition="Humidity" value={`${location.humidity} %`}/>
                 <ConditionWidget icon="windConditionIcon" condition="Wind" value={`${parseInt(location.windSpeed * 3.6)} km/h ${direction}`}/>
-                <ConditionWidget icon="precipitationIcon" condition="Precipitation" value={`TBD`}/>
+                <ConditionWidget icon="visibilityIcon" condition="Visibility" value={`${location.visibility} km`}/>
             </div>
         </div>
     );

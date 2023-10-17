@@ -11,18 +11,17 @@ import Footer from './static/Footer';
 
 /**
  * TODO:
- * - Static elements
- *    - Header
- *    - Footer (maybe)
- * - Create the main page
- *    - Button to add location
- *    - Search Bar
- *    - Clickable Locations
- * 
- * Potential Issues
- * - Feed size when shrinking page vertically
- * - Need the page to change when temperatures are still being fetched
- * 
+ * - Add visibility icon
+ * - Add delete button to each location
+ * - Add search bar in home page
+ * - Add local time on home page
+ * - Apply time offset to data
+ * - Add setting to change to imperical units (be careful of rounding)
+ *    - Can make a toggle next to the search bar
+ * - Deal with the bug when reloading weather page
+ * - Reduce CSS repitition
+ * - Update README
+ * - Fix page header
  */
 function App() {
   const history = useHistory();
@@ -48,7 +47,8 @@ function App() {
         pressure: 0,
         humidity: 0,
         windSpeed: 0,
-        windDir: 0
+        windDir: 0,
+        visibility: 0
       },
       {
         id: 2,
@@ -66,7 +66,8 @@ function App() {
         pressure: 0,
         humidity: 0,
         windSpeed: 0,
-        windDir: 0
+        windDir: 0,
+        visibility: 0
       }
     ]
   );
@@ -118,6 +119,7 @@ function App() {
         locations2[i].humidity = responseData["main"]["humidity"];
         locations2[i].windSpeed = responseData["wind"]["speed"];
         locations2[i].windDir = responseData["wind"]["deg"];
+        locations2[i].visibility = responseData["visibility"] / 1000;
         //locations2[i].condition = "Snow";
         //locations2[i].description = "few clouds: 11-25%"
       }catch(err){
@@ -177,7 +179,7 @@ function App() {
           />
         </Route>
         <Route exact path="/weather/:id">
-          <WeatherPage data={locations}/>
+          <WeatherPage data={locations} />
         </Route>
       </Switch>
     </div>
