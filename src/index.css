@@ -61,6 +61,17 @@ button:hover{
   font-size: 3vh;
 }
 
+#locationSearch {
+  height: 3vh;
+  width: 89.7%;
+  margin-left: 5%;
+  margin-top: 2vh;
+  font-size: 2.5vh;
+  padding: 0;
+  border: 2px solid;
+  color: #070e2b;
+}
+
 .feed {
   height: 81.5vh;
   width:90%;
@@ -364,7 +375,8 @@ button:hover{
   height: 3vh;
   font-size: 2vh;
   border-style: solid;
-  margin-left: 89.5%;
+  margin-left: 45%;
+  margin-top: 2vh;
 }
 
 .deleteButton:hover{

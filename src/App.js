@@ -11,9 +11,10 @@ import Footer from './static/Footer';
 
 /**
  * TODO:
- * - Add search bar in home page
+ * - Add night time icons
  * - Add local time on home page
  * - Apply time offset to data
+ * - Add back buttons
  * - Change page behaviour when page is loading
  * - Add setting to change to imperical units (be careful of rounding)
  *    - Can make a toggle next to the search bar
@@ -22,6 +23,8 @@ import Footer from './static/Footer';
  * - Update README
  * - Fix page header
  */
+
+//items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))
 function App() {
   const history = useHistory();
 
@@ -76,6 +79,7 @@ function App() {
   const [state, setState] = useState('');
   const [country, setCountry] = useState('');
   const [deleteClicked, setDeleteClicked] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const apiKey = process.env.REACT_APP_API_KEY;
   
@@ -166,6 +170,7 @@ function App() {
     }
     const updatedLocations = [...locations, newLocation];
     setLocationsCopy(updatedLocations);
+    setSearchTerm('');
     history.push("/");
   }
 
@@ -174,8 +179,12 @@ function App() {
       <Header title="World Weather" goHome={goHome}/>
       <Switch>
         <Route exact path="/">
+          <input type="text" id="locationSearch" onChange={(e) => setSearchTerm(e.target.value)}></input>
           <button id="addLocationButton" onClick={() => toAddLocationPage()}>Add Location</button>
-          <Feed locations={locations} toWeatherPage={toWeatherPage}/>
+          <Feed 
+            locations={locations.filter(location => ((location.city).toLowerCase()).includes(searchTerm.toLowerCase()))} 
+            toWeatherPage={toWeatherPage}
+          />
         </Route>
         <Route exact path="/add-location">
           <LocationForm
