@@ -11,7 +11,6 @@ import Footer from './static/Footer';
 
 /**
  * TODO:
- * - Apply time offset to data
  * - Add night time icons
  * - Add local time on home page
  * - Add back buttons
@@ -19,6 +18,7 @@ import Footer from './static/Footer';
  * - Add setting to change to imperical units (be careful of rounding)
  *    - Can make a toggle next to the search bar
  * - Deal with the bug when reloading weather page
+ * - Capitalize condition description
  * - Reduce CSS repitition
  * - Update README
  * - Fix page header
@@ -191,7 +191,7 @@ function App() {
       <Header title="World Weather" goHome={goHome}/>
       <Switch>
         <Route exact path="/">
-          <input type="text" id="locationSearch" onChange={(e) => setSearchTerm(e.target.value)}></input>
+          <input type="text" id="locationSearch" onChange={(e) => setSearchTerm(e.target.value)} placeholder="Search Locations"></input>
           <button id="addLocationButton" onClick={() => toAddLocationPage()}>Add Location</button>
           <Feed 
             locations={locations.filter(location => ((location.city).toLowerCase()).includes(searchTerm.toLowerCase()))} 

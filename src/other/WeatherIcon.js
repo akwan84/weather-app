@@ -2,7 +2,7 @@ const WeatherIcon = ({ condition, description, width, height, margin }) => {
     if(condition === 'Clear'){
         return <div className="sunnyIcon" style={{width:`${width}%`, height: `${height}%`, marginLeft:`${margin}%`}}/>
     }else if(condition === 'Clouds'){
-        if(description === "few clouds: 11-25%"){
+        if(description === "few clouds" || description === "scattered clouds"){
             return <div className="partlyCloudyIcon" style={{width:`${width}%`, height: `${height}%`, marginLeft:`${margin}%`}}/>
         }
         return <div className="cloudyIcon" style={{width:`${width}%`, height: `${height}%`, marginLeft:`${margin}%`}}/>
