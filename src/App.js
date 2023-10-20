@@ -11,9 +11,9 @@ import Footer from './static/Footer';
 
 /**
  * TODO:
+ * - Apply time offset to data
  * - Add night time icons
  * - Add local time on home page
- * - Apply time offset to data
  * - Add back buttons
  * - Change page behaviour when page is loading
  * - Add setting to change to imperical units (be careful of rounding)
@@ -49,7 +49,8 @@ function App() {
         humidity: 0,
         windSpeed: 0,
         windDir: 0,
-        visibility: 0
+        visibility: 0,
+        offset: 0
       },
       {
         id: 2,
@@ -68,7 +69,8 @@ function App() {
         humidity: 0,
         windSpeed: 0,
         windDir: 0,
-        visibility: 0
+        visibility: 0,
+        offset: 0
       }
     ]
   );
@@ -123,6 +125,7 @@ function App() {
         locations2[i].windSpeed = responseData["wind"]["speed"];
         locations2[i].windDir = responseData["wind"]["deg"];
         locations2[i].visibility = responseData["visibility"] / 1000;
+        locations2[i].offset = responseData["timezone"];
         //locations2[i].condition = "Snow";
         //locations2[i].description = "few clouds: 11-25%"
       }catch(err){
@@ -166,7 +169,16 @@ function App() {
       lat: lat,
       long: long,
       temp: 0,
-      condition: "sunny"
+      condition: "",
+      description: "",
+      sunrise: 0,
+      sunset: 0,
+      pressure: 0,
+      humidity: 0,
+      windSpeed: 0,
+      windDir: 0,
+      visibility: 0,
+      offset: 0
     }
     const updatedLocations = [...locations, newLocation];
     setLocationsCopy(updatedLocations);

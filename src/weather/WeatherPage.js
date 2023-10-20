@@ -11,11 +11,11 @@ const WeatherPage = ({ data, handleDelete, deleteClicked, setDeleteClicked}) => 
 
     const { id } = useParams();
     const location = data.find(l => (l.id).toString() === id);
-    const sunriseTime = new Date(location.sunrise * 1000);
-    const sunsetTime = new Date(location.sunset * 1000);
+    const sunriseTime = new Date((location.sunrise + location.offset) * 1000);
+    const sunsetTime = new Date((location.sunset + location.offset) * 1000);
 
-    const sunriseTimeInAMPM = `${sunriseTime.getHours() % 12 || 12}:${sunriseTime.getMinutes().toString().padStart(2, '0')} ${sunriseTime.getHours() >= 12 ? 'PM' : 'AM'}`;
-    const sunsetTimeInAMPM = `${sunsetTime.getHours() % 12 || 12}:${sunsetTime.getMinutes().toString().padStart(2, '0')} ${sunsetTime.getHours() >= 12 ? 'PM' : 'AM'}`;
+    const sunriseTimeInAMPM = `${sunriseTime.getUTCHours() % 12 || 12}:${sunriseTime.getUTCMinutes().toString().padStart(2, '0')} ${sunriseTime.getUTCHours() >= 12 ? 'PM' : 'AM'}`;
+    const sunsetTimeInAMPM = `${sunsetTime.getUTCHours() % 12 || 12}:${sunsetTime.getUTCMinutes().toString().padStart(2, '0')} ${sunsetTime.getUTCHours() >= 12 ? 'PM' : 'AM'}`;
 
     const direction = degreeToCompassDirection(location.windDir);
     return (
