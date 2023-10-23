@@ -7,7 +7,6 @@ import Feed from './home/Feed';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import dailyWeatherApi from './dailyWeatherApi/dailyWeatherApi';
 import WeatherPage from './weather/WeatherPage';
-import Footer from './static/Footer';
 
 /**
  * TODO:

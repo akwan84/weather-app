@@ -8,7 +8,7 @@ const ForecastDay = ({ temp, date, condition, description }) => {
         <div className="forecastDay">
             <h3 className="weatherPageH3">{dayOfWeek}</h3>
             <h1 className="weatherPageH1">{`${temp}\u00B0C`}</h1>
-            <WeatherIcon condition={condition} description={description} width={50} height={50} margin={25}/>
+            <WeatherIcon condition={condition} description={description} sunOut={true} width={50} height={50} margin={25}/>
         </div>
     );
 }

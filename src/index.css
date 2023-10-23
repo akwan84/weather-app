@@ -167,6 +167,14 @@ button:hover{
   background-size:contain;
 }
 
+.clearNightIcon{
+  float:left;
+  background-image: url('images/clear-night.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size:contain;
+}
+
 .cloudyIcon{
   float:left;
   background-image: url('images/cloudy.png');
@@ -178,6 +186,14 @@ button:hover{
 .partlyCloudyIcon{
   float:left;
   background-image: url('images/partly-cloudy.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size:contain;
+}
+
+.partlyCloudyNightIcon{
+  float:left;
+  background-image: url('images/partly-cloudy-night.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size:contain;

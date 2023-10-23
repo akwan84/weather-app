@@ -12,6 +12,8 @@ const Feed = ({ locations, toWeatherPage }) => {
                     temp={location.temp}
                     condition={location.condition}
                     description={location.description}
+                    sunrise={location.sunrise}
+                    sunset={location.sunset}
                     toWeatherPage={toWeatherPage}
                 />
             ))}

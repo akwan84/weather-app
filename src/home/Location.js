@@ -1,5 +1,8 @@
 import WeatherIcon from "../other/WeatherIcon";
-const Location = ({ id, city, state, country, temp, condition, description, toWeatherPage }) => {
+const Location = ({ id, city, state, country, temp, condition, description, sunrise, sunset, toWeatherPage }) => {
+    const currentTime = Math.floor(Date.now() / 1000);
+    const sunOut = (currentTime - sunrise >= 0) && (sunset - currentTime >= 0);
+
     return (
         <div className="location" onClick={() => toWeatherPage(id)}>  
             <div className="locationCity">
@@ -9,8 +12,7 @@ const Location = ({ id, city, state, country, temp, condition, description, toWe
             <div className="locationTemp">
                 <h1 style={{textAlign:"right", margin:0}}>{`${temp}\u00B0C`}</h1>
             </div>
-            <WeatherIcon condition={condition} description={description} width={10} height={100} margin={0}/>
-            
+            <WeatherIcon condition={condition} description={description} sunOut={sunOut} width={10} height={100} margin={0}/>
         </div>
     );
 }
