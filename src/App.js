@@ -10,7 +10,6 @@ import WeatherPage from './weather/WeatherPage';
 
 /**
  * TODO:
- * - Add night time icons
  * - Add local time on home page
  * - Add back buttons
  * - Change page behaviour when page is loading
@@ -21,6 +20,9 @@ import WeatherPage from './weather/WeatherPage';
  * - Reduce CSS repitition
  * - Update README
  * - Fix page header
+ * - Ensure no duplicate entries can be added
+ * - Deal with undefined states
+ * - Deal with vertical resizing bug in delete verification
  */
 
 //items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))

@@ -55,7 +55,7 @@ button:hover{
 
 #addLocationButton {
   height: 4.5vh;
-  width: 90%;
+  width: 90.25%;
   margin-left: 5%;
   margin-top: 2vh;
   font-size: 3vh;
@@ -63,7 +63,7 @@ button:hover{
 
 #locationSearch {
   height: 3vh;
-  width: 89.7%;
+  width: 90%;
   margin-left: 5%;
   margin-top: 2vh;
   font-size: 2.5vh;
@@ -73,11 +73,14 @@ button:hover{
 }
 
 .feed {
-  height: 81.5vh;
+  height: 70vh;
   width:90%;
   margin-left: 5%;
   margin-top: 2vh;
   overflow-y: auto;
+  border: 2px solid;
+  scrollbar-width: thin;
+  -ms-overflow-style: none;
 }
 
 #city, #state, #country {
@@ -131,7 +134,8 @@ button:hover{
 }
 
 .location{
-  width:100%;
+  width:98%;
+  margin-left:1%;
   margin-top:1vh;
   height: 100px;
   background-color: #070e2b;
