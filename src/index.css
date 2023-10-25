@@ -55,10 +55,22 @@ button:hover{
 
 #addLocationButton {
   height: 4.5vh;
-  width: 90.25%;
+  width: 55.25%;
   margin-left: 5%;
   margin-top: 2vh;
   font-size: 3vh;
+}
+
+.unitToggle{
+  height: 4.5vh;
+  width: 15%;
+  margin-left: 5%;
+  margin-top: 2vh;
+  font-size: 3vh;
+}
+
+.unitToggle:hover{
+  border-color: #070e2b;
 }
 
 #locationSearch {

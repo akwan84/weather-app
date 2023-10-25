@@ -2,9 +2,13 @@ import forecastApi from "../forecastApi/forecastApi";
 import ForecastDay from "./ForecastDay";
 import { useEffect, useState } from "react";
 
-const Forecast = ({ lat, long }) => {
+const Forecast = ({ lat, long, isMetric }) => {
     const apiKey = process.env.REACT_APP_API_KEY;
     const [forecastData, setForecastData] = useState([]);
+
+    const toFahrenheit = (temp) => {
+        return parseInt((temp * (9 / 5)) + 32);
+    }
 
     useEffect(() => {
         const getData = async() => {
@@ -19,6 +23,7 @@ const Forecast = ({ lat, long }) => {
                     results.push(
                         {
                             "temp": parseInt(responseData["list"][i]["main"]["temp"] - 273.15),
+                            "tempFar": toFahrenheit(responseData["list"][i]["main"]["temp"] - 273.15),
                             "date": responseData["list"][i]["dt"],
                             "condition": responseData["list"][i]["weather"][0]["main"],
                             "description": responseData["list"][i]["weather"][0]["description"]
@@ -36,7 +41,7 @@ const Forecast = ({ lat, long }) => {
     return (
         <div>
             {forecastData.map(forecast => (
-                <ForecastDay temp={forecast["temp"]} date={forecast["date"]} condition={forecast["condition"]} description={forecast["description"]} />
+                <ForecastDay temp={isMetric ? forecast["temp"] : forecast["tempFar"]} date={forecast["date"]} condition={forecast["condition"]} description={forecast["description"]} isMetric={isMetric}/>
             ))}
         </div>
     );

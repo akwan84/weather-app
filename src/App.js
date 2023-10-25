@@ -10,12 +10,10 @@ import WeatherPage from './weather/WeatherPage';
 
 /**
  * TODO:
- * - Add local time on home page
+ * - Add imperical units for pressure, wind, and visibility
  * - Add back buttons
  * - Change page behaviour when page is loading
- * - Add setting to change to imperical units (be careful of rounding)
  *    - Can make a toggle next to the search bar
- * - Deal with the bug when reloading weather page
  * - Capitalize condition description
  * - Reduce CSS repitition
  * - Update README
@@ -25,7 +23,6 @@ import WeatherPage from './weather/WeatherPage';
  * - Deal with vertical resizing bug in delete verification
  */
 
-//items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))
 function App() {
   const history = useHistory();
 
@@ -41,7 +38,9 @@ function App() {
         lat: 43.653225,
         long: -79.383186,
         temp: 0,
+        tempFar: 0,
         feelsLike: 0,
+        feelsLikeFar: 0,
         condition:"",
         description: "",
         sunrise: 0,
@@ -61,7 +60,9 @@ function App() {
         lat: 40.712776,
         long: -74.005974,
         temp: 0,
+        tempFar: 0,
         feelsLike: 0,
+        feelsLikeFar: 0,
         condition:"",
         description: "",
         sunrise: 0,
@@ -83,6 +84,7 @@ function App() {
   const [country, setCountry] = useState('');
   const [deleteClicked, setDeleteClicked] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isMetric, setIsMetric] = useState(true);
 
   const apiKey = process.env.REACT_APP_API_KEY;
   
@@ -92,6 +94,10 @@ function App() {
 
   const toWeatherPage = (id) => {
     history.push(`weather/${id}`);
+  }
+
+  const toFahrenheit = (temp) => {
+    return parseInt((temp * (9 / 5)) + 32);
   }
 
   const handleSubmit = async (e) => {
@@ -116,16 +122,18 @@ function App() {
         const response = await dailyWeatherApi.get(`/weather?lat=${locationsCopy[i].lat}&lon=${locationsCopy[i].long}&appid=${apiKey}`)
         const responseData = response.data;
         locations2[i].temp = parseInt(responseData["main"]["temp"] - 273.15);
+        locations2[i].tempFar = toFahrenheit(responseData["main"]["temp"] - 273.15);
         locations2[i].condition = responseData["weather"][0]["main"];
         locations2[i].description = responseData["weather"][0]["description"];
         locations2[i].feelsLike = parseInt(responseData["main"]["feels_like"] - 273.15);
+        locations2[i].feelsLikeFar = toFahrenheit(responseData["main"]["feels_like"] - 273.15);
         locations2[i].sunrise = responseData["sys"]["sunrise"];
         locations2[i].sunset = responseData["sys"]["sunset"];
         locations2[i].pressure = responseData["main"]["pressure"];
         locations2[i].humidity = responseData["main"]["humidity"];
         locations2[i].windSpeed = responseData["wind"]["speed"];
         locations2[i].windDir = responseData["wind"]["deg"];
-        locations2[i].visibility = responseData["visibility"] / 1000;
+        locations2[i].visibility = Math.round((responseData["visibility"] / 1000) * 100) / 100;
         locations2[i].offset = responseData["timezone"];
         //locations2[i].condition = "Snow";
         //locations2[i].description = "few clouds: 11-25%"
@@ -194,9 +202,24 @@ function App() {
         <Route exact path="/">
           <input type="text" id="locationSearch" onChange={(e) => setSearchTerm(e.target.value)} placeholder="Search Locations"></input>
           <button id="addLocationButton" onClick={() => toAddLocationPage()}>Add Location</button>
+          <button 
+            className="unitToggle" 
+            onClick={() => setIsMetric(true)} 
+            style={{backgroundColor: isMetric ? "#070e2b" : "white", color: !isMetric ? "#070e2b" : "white"}}
+          >
+              Metric
+          </button>
+          <button 
+            className="unitToggle" 
+            onClick={() => setIsMetric(false)} 
+            style={{marginLeft: "0px", backgroundColor: !isMetric ? "#070e2b" : "white", color: isMetric ? "#070e2b" : "white"}}
+          >
+            Imperial
+          </button>
           <Feed 
             locations={locations.filter(location => ((location.city).toLowerCase()).includes(searchTerm.toLowerCase()))} 
             toWeatherPage={toWeatherPage}
+            isMetric={isMetric}
           />
         </Route>
         <Route exact path="/add-location">
@@ -212,7 +235,14 @@ function App() {
           />
         </Route>
         <Route exact path="/weather/:id">
-          <WeatherPage data={locations} handleDelete={handleDelete} deleteClicked={deleteClicked} setDeleteClicked={setDeleteClicked}/>
+          <WeatherPage 
+            data={locations} 
+            handleDelete={handleDelete} 
+            deleteClicked={deleteClicked} 
+            setDeleteClicked={setDeleteClicked} 
+            goHome={goHome} 
+            isMetric={isMetric}
+          />
         </Route>
       </Switch>
     </div>
