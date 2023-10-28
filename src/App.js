@@ -18,7 +18,6 @@ import WeatherPage from './weather/WeatherPage';
  * - Fix page header
  * - Ensure no duplicate entries can be added
  * - Deal with undefined states
- * - Deal with vertical resizing bug in delete verification
  */
 
 function App() {
