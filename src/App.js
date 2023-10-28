@@ -12,8 +12,6 @@ import WeatherPage from './weather/WeatherPage';
  * TODO:
  * - Add imperical units for pressure, wind, and visibility
  * - Add back buttons
- * - Change page behaviour when page is loading
- *    - Can make a toggle next to the search bar
  * - Capitalize condition description
  * - Reduce CSS repitition
  * - Update README
@@ -27,8 +25,9 @@ function App() {
   const history = useHistory();
 
   const [geoData, setGeoData] = useState([]);
-
-  const [locations, setLocations] = useState(
+  const [locations, setLocations] = useState([]);
+  //Leaving this here in case I need to debug
+  /*const [locations, setLocations] = useState(
     [
       {
         id: 1,
@@ -75,7 +74,8 @@ function App() {
         offset: 0
       }
     ]
-  );
+  );*/
+
 
   const [locationsCopy, setLocationsCopy] = useState([]); //weird workaround to prevent infinite loop in handleSubmit by updating locations
 
@@ -151,13 +151,16 @@ function App() {
         newLocations.push(locations[i]);
       }
     }
+    localStorage.setItem('locationList', JSON.stringify(newLocations));
     setLocationsCopy(newLocations);
     setDeleteClicked(false);
     history.push("/");
   } 
 
   useEffect(() => {
-    setLocationsCopy(locations);
+    //const test = JSON.parse(localStorage.getItem('locationList'));
+    //setLocations(JSON.parse(localStorage.getItem('locationList')));
+    setLocationsCopy(JSON.parse(localStorage.getItem('locationList')));
   }, []);
 
   useEffect(() => {
@@ -171,14 +174,17 @@ function App() {
 
   const addLocation = (city, state, country, lat, long) => {
     const newLocation = {
-      id: locations[locations.length-1].id + 1, 
+      id: locations.length > 0 ? locations[locations.length-1].id + 1 : 0,
       city: city,
       state: state,
       country: country,
       lat: lat,
       long: long,
       temp: 0,
-      condition: "",
+      tempFar: 0,
+      feelsLike: 0,
+      feelsLikeFar: 0,
+      condition:"",
       description: "",
       sunrise: 0,
       sunset: 0,
@@ -190,6 +196,7 @@ function App() {
       offset: 0
     }
     const updatedLocations = [...locations, newLocation];
+    localStorage.setItem('locationList', JSON.stringify(updatedLocations));
     setLocationsCopy(updatedLocations);
     setSearchTerm('');
     history.push("/");
