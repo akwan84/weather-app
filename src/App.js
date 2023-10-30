@@ -16,7 +16,6 @@ import WeatherPage from './weather/WeatherPage';
  * - Reduce CSS repitition
  * - Update README
  * - Fix page header
- * - Ensure no duplicate entries can be added
  * - Deal with undefined states
  */
 
@@ -99,6 +98,15 @@ function App() {
     return parseInt((temp * (9 / 5)) + 32);
   }
 
+  const locationAdded = (lat, long) => {
+    for(let i = 0; i < locations.length; i++){
+      if(locations[i].lat === lat && locations[i].long === long){
+        return true;
+      }
+    }
+    return false;
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{
@@ -106,6 +114,7 @@ function App() {
       const responseData = response.data;
       for(let i = 0; i < responseData.length; i++){
         delete responseData[i].local_names;
+        responseData[i].locationAdded = locationAdded(responseData[i].lat, responseData[i].lon);
       }
       setGeoData(responseData);
     }catch(err){

@@ -7,7 +7,7 @@ const LocationList = ({ data, addLocation }) => {
         for(let i = 0; i < data.length; i++){
             const country = countryCodes[data[i].country];
             results.push(
-                <LocationSearchResult city={data[i].name} state={data[i].state} country={country} lat={data[i].lat} long={data[i].lon} addLocation={addLocation}/>
+                <LocationSearchResult city={data[i].name} state={data[i].state} country={country} lat={data[i].lat} long={data[i].lon} addLocation={addLocation} locationAdded={data[i].locationAdded}/>
             )
         }
         return results;
