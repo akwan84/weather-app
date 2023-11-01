@@ -55,6 +55,7 @@ const WeatherPage = ({ data, handleDelete, deleteClicked, setDeleteClicked, goHo
                     <ConditionWidget icon="windConditionIcon" condition="Wind" value={`${Math.round(location.windSpeed * 3.6 * 100) / 100} km/h ${direction}`}/>
                     <ConditionWidget icon="visibilityIcon" condition="Visibility" value={`${location.visibility} km`}/>
                 </div>
+                <button className="weatherPageHomeButton" onClick={() => goHome()}>Home</button>
                 <button className="deleteButton" onClick={() => setDeleteClicked(true)}>Delete</button>
             </div>
         : 

@@ -1,4 +1,4 @@
-const LocationForm = ({ handleSubmit, setCity, setState, setCountry }) => {
+const LocationForm = ({ handleSubmit, setCity, setState, setCountry, goHome }) => {
     return(
         <div>
             <form className="locationForm" onSubmit={(e) => handleSubmit(e)}>
@@ -14,6 +14,7 @@ const LocationForm = ({ handleSubmit, setCity, setState, setCountry }) => {
                 <br/>
                 <input id="country" onChange={(e) => {setCountry(e.target.value)}}></input>
                 <br/>
+                <button id="goHomeLocationPage" onClick={() => goHome()}>Home</button>
                 <button id="locationFormSubmit" type="submit">Submit</button>
             </form>
         </div>

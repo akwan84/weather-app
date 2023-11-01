@@ -105,11 +105,24 @@ button:hover{
   font-size: 3vh;
 }
 
-#locationFormSubmit{
-  width: 50%;
+#goHomeLocationPage{
+  width: 15%;
   height: 4vh;
   font-size: 3vh;
-  margin-left: 25%;
+  margin-left: 66.3%;
+  margin-top: 2vh;
+}
+
+#goHomeLocationPage:hover{
+  background-color: #aaaaaa;
+  color: #070e2b;
+}
+
+#locationFormSubmit{
+  width: 15%;
+  height: 4vh;
+  font-size: 3vh;
+  margin-left: 1%;
   margin-top: 2vh;
 }
 
@@ -407,8 +420,31 @@ button:hover{
   height: 3vh;
   font-size: 2vh;
   border-style: solid;
-  margin-left: 45%;
+  margin-left: 76.5%;
   margin-top: 2vh;
+}
+
+.deleteButton{
+  background-color: white;
+  border-color: red;
+  color: red;
+  cursor: pointer;
+  width: 10%;
+  height: 3vh;
+  font-size: 2vh;
+  border-style: solid;
+  margin-left: 1%;
+  margin-top: 2vh;
+  float: left;
+}
+
+.weatherPageHomeButton{
+  width: 10%;
+  margin-left: 78.5%;
+  margin-top: 2vh;
+  height: 3vh;
+  font-size: 2vh;
+  float: left;
 }
 
 .deleteButton:hover{

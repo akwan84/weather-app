@@ -11,11 +11,8 @@ import WeatherPage from './weather/WeatherPage';
 /**
  * TODO:
  * - Add imperical units for pressure, wind, and visibility
- * - Add back buttons
  * - Capitalize condition description
  * - Reduce CSS repitition
- * - Update README
- * - Fix page header
  * - Deal with undefined states
  */
 
@@ -243,6 +240,7 @@ function App() {
             setState = {setState}
             setCountry = {setCountry}
             handleSubmit = {handleSubmit}
+            goHome = {goHome}
           />
           <LocationList
             data = {geoData}
