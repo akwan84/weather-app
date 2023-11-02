@@ -30,7 +30,8 @@ const WeatherPage = ({ data, handleDelete, deleteClicked, setDeleteClicked, goHo
             <div className="weatherPage">
                 <div className="weatherPageHeader">
                     <h1 className="weatherPageH1">{location.city}</h1>
-                    <h3 className="weatherPageH3">{`${location.state}, ${location.country}`}</h3>
+                    {location.state && <h3 className="weatherPageH3">{`${location.state}, ${location.country}`}</h3>}
+                    {!location.state && <h3 className="weatherPageH3">{`${location.country}`}</h3>}
                 </div>
                 <div className="weatherPageTemperature">
                     <h1 className="weatherPageH1">{`${isMetric ? location.temp : location.tempFar}\u00B0${isMetric ? 'C' : 'F'}`}</h1>

@@ -13,7 +13,6 @@ import WeatherPage from './weather/WeatherPage';
  * - Add imperical units for pressure, wind, and visibility
  * - Capitalize condition description
  * - Deal with undefined states
- * - Make sure form submits when pressing enter
  */
 
 function App() {

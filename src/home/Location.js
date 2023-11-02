@@ -7,7 +7,8 @@ const Location = ({ id, city, state, country, temp, condition, description, sunr
         <div className="location" onClick={() => toWeatherPage(id)}>  
             <div className="locationCity">
                 <h1 style={{marginLeft:"10px", marginTop: "10px",paddingTop: "0px", marginBottom:"0px"}}>{city}</h1>
-                <p style={{marginLeft:"10px", paddingTop: "0px", marginBottom:"0px"}}>{`${state}, ${country}`}</p>
+                {state && <p style={{marginLeft:"10px", paddingTop: "0px", marginBottom:"0px"}}>{`${state}, ${country}`}</p>}
+                {!state && <p style={{marginLeft:"10px", paddingTop: "0px", marginBottom:"0px"}}>{`${country}`}</p>}
             </div>
             <div className="locationTemp">
                 <h1 style={{textAlign:"right", margin:0}}>{`${temp}\u00B0${isMetric ? 'C' : 'F'}`}</h1>
