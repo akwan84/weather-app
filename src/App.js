@@ -12,7 +12,6 @@ import WeatherPage from './weather/WeatherPage';
  * TODO:
  * - Add imperical units for pressure, wind, and visibility
  * - Capitalize condition description
- * - Reduce CSS repitition
  * - Deal with undefined states
  * - Make sure form submits when pressing enter
  */
@@ -105,8 +104,7 @@ function App() {
     return false;
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     try{
       const response = await geoApi.get(`/direct?q=${city},${state},${country}&limit=5&appid=${apiKey}`)
       const responseData = response.data;
