@@ -14,6 +14,7 @@ import WeatherPage from './weather/WeatherPage';
  * - Capitalize condition description
  * - Reduce CSS repitition
  * - Deal with undefined states
+ * - Make sure form submits when pressing enter
  */
 
 function App() {
@@ -140,8 +141,8 @@ function App() {
         locations2[i].windDir = responseData["wind"]["deg"];
         locations2[i].visibility = Math.round((responseData["visibility"] / 1000) * 100) / 100;
         locations2[i].offset = responseData["timezone"];
-        //locations2[i].condition = "Snow";
-        //locations2[i].description = "few clouds: 11-25%"
+        //locations2[i].condition = "Sno";
+        //locations2[i].description = "few clouds"
       }catch(err){
         console.log(err.message);
       }
@@ -163,8 +164,6 @@ function App() {
   } 
 
   useEffect(() => {
-    //const test = JSON.parse(localStorage.getItem('locationList'));
-    //setLocations(JSON.parse(localStorage.getItem('locationList')));
     setLocationsCopy(JSON.parse(localStorage.getItem('locationList')));
   }, []);
 

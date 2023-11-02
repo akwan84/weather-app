@@ -46,17 +46,17 @@ const WeatherPage = ({ data, handleDelete, deleteClicked, setDeleteClicked, goHo
                     <h1 className="weatherPageH1" style={{marginLeft:"0.5%"}}>Conditions</h1>
                 </div>
                 <div className="currentConditions">
-                    <ConditionWidget icon="sunriseIcon" condition="Sunrise" value={sunriseTimeInAMPM}/>
-                    <ConditionWidget icon="sunsetIcon" condition="Sunset" value={sunsetTimeInAMPM}/>
-                    <ConditionWidget icon="pressureIcon" condition="Pressure" value={`${location.pressure} hPa`}/>
+                    <ConditionWidget icon="weatherPageIcon sunriseIcon" condition="Sunrise" value={sunriseTimeInAMPM}/>
+                    <ConditionWidget icon="weatherPageIcon sunsetIcon" condition="Sunset" value={sunsetTimeInAMPM}/>
+                    <ConditionWidget icon="weatherPageIcon pressureIcon" condition="Pressure" value={`${location.pressure} hPa`}/>
                 </div>
                 <div className="currentConditions">
-                    <ConditionWidget icon="humidityIcon" condition="Humidity" value={`${location.humidity} %`}/>
-                    <ConditionWidget icon="windConditionIcon" condition="Wind" value={`${Math.round(location.windSpeed * 3.6 * 100) / 100} km/h ${direction}`}/>
-                    <ConditionWidget icon="visibilityIcon" condition="Visibility" value={`${location.visibility} km`}/>
+                    <ConditionWidget icon="weatherPageIcon humidityIcon" condition="Humidity" value={`${location.humidity} %`}/>
+                    <ConditionWidget icon="weatherPageIcon windConditionIcon" condition="Wind" value={`${Math.round(location.windSpeed * 3.6 * 100) / 100} km/h ${direction}`}/>
+                    <ConditionWidget icon="weatherPageIcon visibilityIcon" condition="Visibility" value={`${location.visibility} km`}/>
                 </div>
-                <button className="weatherPageHomeButton" onClick={() => goHome()}>Home</button>
-                <button className="deleteButton" onClick={() => setDeleteClicked(true)}>Delete</button>
+                <button className="weatherPageButton weatherPageHomeButton" onClick={() => goHome()}>Home</button>
+                <button className="weatherPageButton deleteButton" onClick={() => setDeleteClicked(true)}>Delete</button>
             </div>
         : 
             <div className='deleteVerification'>

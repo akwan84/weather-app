@@ -92,7 +92,6 @@ button:hover{
   overflow-y: auto;
   border: 2px solid;
   scrollbar-width: thin;
-  -ms-overflow-style: none;
 }
 
 #city, #state, #country {
@@ -105,25 +104,19 @@ button:hover{
   font-size: 3vh;
 }
 
-#goHomeLocationPage{
+.locationPageButton{
   width: 15%;
   height: 4vh;
   font-size: 3vh;
-  margin-left: 66.3%;
   margin-top: 2vh;
 }
 
-#goHomeLocationPage:hover{
-  background-color: #aaaaaa;
-  color: #070e2b;
+#goHomeLocationPage{
+  margin-left: 66.3%;
 }
 
 #locationFormSubmit{
-  width: 15%;
-  height: 4vh;
-  font-size: 3vh;
   margin-left: 1%;
-  margin-top: 2vh;
 }
 
 .locationSearchResult{
@@ -171,7 +164,6 @@ button:hover{
 .locationCity{
   width:60%;
   height:100%;
-  //background-color: blue;
   float:left;
 }
 
@@ -188,90 +180,53 @@ button:hover{
   text-align: right;
 }
 
-.sunnyIcon{
+.icon{
   float:left;
-  background-image: url('images/sunny.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size:contain;
+}
+
+.sunnyIcon{
+  background-image: url('images/sunny.png');
 }
 
 .clearNightIcon{
-  float:left;
   background-image: url('images/clear-night.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size:contain;
 }
 
 .cloudyIcon{
-  float:left;
   background-image: url('images/cloudy.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size:contain;
 }
 
 .partlyCloudyIcon{
-  float:left;
   background-image: url('images/partly-cloudy.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size:contain;
 }
 
 .partlyCloudyNightIcon{
-  float:left;
   background-image: url('images/partly-cloudy-night.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size:contain;
 }
 
 .thunderstormIcon{
-  float:left;
   background-image: url('images/thunderstorm.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size:contain;
 }
 
 .rainIcon{
-  width:10%;
-  height:100%;
-  float:left;
   background-image: url('images/rainy.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size:contain;
 }
 
 .snowIcon{
-  float:left;
   background-image: url('images/snowy.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size:contain;
 }
 
 .windIcon{
-  float:left;
   background-image: url('images/windy.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size:contain;
 }
 
 .weatherPage{
   width: 95%;
   height: 70vh;
   margin-left: 2.5%;
-}
-
-.footer{
-  width: 100%;
-  height: 11.5vh;
-  background-color: #070e2b;
 }
 
 .forecastDay{
@@ -335,74 +290,41 @@ button:hover{
   float:left;
 }
 
-.sunriseIcon{
+.weatherPageIcon{
   width: 30%;
   height: 11vh;
   float:left;
-  background-image: url('images/sunrise.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size:contain;
+}
+
+.sunriseIcon{
+  background-image: url('images/sunrise.png');
 }
 
 .sunsetIcon{
-  width: 30%;
-  height: 11vh;
-  float:left;
   background-image: url('images/sunset.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size:contain;
 }
 
 .pressureIcon{
-  width: 30%;
-  height: 11vh;
-  float:left;
   background-image: url('images/pressure.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size:contain;
 }
 
 .humidityIcon{
-  width: 30%;
-  height: 11vh;
-  float:left;
   background-image: url('images/humidity.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size:contain;
 }
 
 .windConditionIcon{
-  width: 30%;
-  height: 11vh;
-  float:left;
   background-image: url('images/windy.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size:contain;
 }
 
 .precipitationIcon{
-  width: 30%;
-  height: 11vh;
-  float:left;
   background-image: url('images/rainy.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size:contain;
 }
 
 .visibilityIcon{
-  width: 30%;
-  height: 11vh;
-  float:left;
   background-image: url('images/visibility.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size:contain;
 }
 
 .conditionHeader{
@@ -411,40 +333,24 @@ button:hover{
   float:left;
 }
 
-.deleteButton{
-  background-color: white;
-  border-color: red;
-  color: red;
-  cursor: pointer;
+.weatherPageButton{
   width: 10%;
   height: 3vh;
   font-size: 2vh;
-  border-style: solid;
-  margin-left: 76.5%;
   margin-top: 2vh;
+  float: left;
 }
 
 .deleteButton{
   background-color: white;
   border-color: red;
   color: red;
-  cursor: pointer;
-  width: 10%;
-  height: 3vh;
-  font-size: 2vh;
   border-style: solid;
   margin-left: 1%;
-  margin-top: 2vh;
-  float: left;
 }
 
 .weatherPageHomeButton{
-  width: 10%;
   margin-left: 78.5%;
-  margin-top: 2vh;
-  height: 3vh;
-  font-size: 2vh;
-  float: left;
 }
 
 .deleteButton:hover{
