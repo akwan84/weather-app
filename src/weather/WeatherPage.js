@@ -5,7 +5,7 @@ import ConditionWidget from './ConditionWidget';
 const WeatherPage = ({ data, handleDelete, deleteClicked, setDeleteClicked, goHome, isMetric }) => {
     const degreeToCompassDirection = (degree) => {
         const directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
-        const index = Math.round(degree / 45) % 8; // Map degrees to index
+        const index = Math.round(degree / 45) % 8;
         return directions[index];
     }
 

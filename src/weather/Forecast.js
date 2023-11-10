@@ -18,8 +18,6 @@ const Forecast = ({ lat, long, isMetric }) => {
                 const responseData = response.data;
                 console.log(responseData.length);
                 for(let i = 0; i < 40; i+=8){
-                    //results.push(<div className="forecastDay">{responseData["list"][i]["main"]["temp"]}</div>)
-                    //results.push(parseInt(responseData["list"][i]["main"]["temp"] - 273.15));
                     results.push(
                         {
                             "temp": parseInt(responseData["list"][i]["main"]["temp"] - 273.15),

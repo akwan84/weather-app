@@ -10,62 +10,9 @@ import WeatherPage from './weather/WeatherPage';
 
 function App() {
   const history = useHistory();
-
   const [geoData, setGeoData] = useState([]);
   const [locations, setLocations] = useState([]);
-  //Leaving this here in case I need to debug
-  /*const [locations, setLocations] = useState(
-    [
-      {
-        id: 1,
-        city:"Toronto",
-        state:"Ontario",
-        country:"Canada",
-        lat: 43.653225,
-        long: -79.383186,
-        temp: 0,
-        tempFar: 0,
-        feelsLike: 0,
-        feelsLikeFar: 0,
-        condition:"",
-        description: "",
-        sunrise: 0,
-        sunset: 0,
-        pressure: 0,
-        humidity: 0,
-        windSpeed: 0,
-        windDir: 0,
-        visibility: 0,
-        offset: 0
-      },
-      {
-        id: 2,
-        city:"New York",
-        state:"New York",
-        country:"USA",
-        lat: 40.712776,
-        long: -74.005974,
-        temp: 0,
-        tempFar: 0,
-        feelsLike: 0,
-        feelsLikeFar: 0,
-        condition:"",
-        description: "",
-        sunrise: 0,
-        sunset: 0,
-        pressure: 0,
-        humidity: 0,
-        windSpeed: 0,
-        windDir: 0,
-        visibility: 0,
-        offset: 0
-      }
-    ]
-  );*/
-
-
   const [locationsCopy, setLocationsCopy] = useState([]); //weird workaround to prevent infinite loop in handleSubmit by updating locations
-
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [country, setCountry] = useState('');
@@ -132,8 +79,6 @@ function App() {
         locations2[i].visibility = Math.round((responseData["visibility"] / 1000) * 100) / 100;
         locations2[i].visibilityImp = Math.round((responseData["visibility"] / 1609) * 100) / 100;
         locations2[i].offset = responseData["timezone"];
-        //locations2[i].condition = "Sno";
-        //locations2[i].description = "few clouds"
       }catch(err){
         console.log(err.message);
       }
