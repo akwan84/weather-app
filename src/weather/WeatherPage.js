@@ -23,6 +23,8 @@ const WeatherPage = ({ data, handleDelete, deleteClicked, setDeleteClicked, goHo
     const sunriseTimeInAMPM = `${sunriseTime.getUTCHours() % 12 || 12}:${sunriseTime.getUTCMinutes().toString().padStart(2, '0')} ${sunriseTime.getUTCHours() >= 12 ? 'PM' : 'AM'}`;
     const sunsetTimeInAMPM = `${sunsetTime.getUTCHours() % 12 || 12}:${sunsetTime.getUTCMinutes().toString().padStart(2, '0')} ${sunsetTime.getUTCHours() >= 12 ? 'PM' : 'AM'}`;
 
+    const capitalizedDescription = location.description.charAt(0).toUpperCase() + location.description.slice(1);
+
     const direction = degreeToCompassDirection(location.windDir);
     return (
         <>
@@ -39,7 +41,7 @@ const WeatherPage = ({ data, handleDelete, deleteClicked, setDeleteClicked, goHo
                 </div>
                 <div className="weatherPageCondition">
                     <h1 className="weatherPageH1">{location.condition}</h1>
-                    <h3 className="weatherPageH3">{location.description}</h3>
+                    <h3 className="weatherPageH3">{capitalizedDescription}</h3>
                 </div>
                 <Forecast lat={location.lat} long={location.long} isMetric={isMetric}/>
                 <br/>
@@ -49,12 +51,12 @@ const WeatherPage = ({ data, handleDelete, deleteClicked, setDeleteClicked, goHo
                 <div className="currentConditions">
                     <ConditionWidget icon="weatherPageIcon sunriseIcon" condition="Sunrise" value={sunriseTimeInAMPM}/>
                     <ConditionWidget icon="weatherPageIcon sunsetIcon" condition="Sunset" value={sunsetTimeInAMPM}/>
-                    <ConditionWidget icon="weatherPageIcon pressureIcon" condition="Pressure" value={`${location.pressure} hPa`}/>
+                    <ConditionWidget icon="weatherPageIcon pressureIcon" condition="Pressure" value={isMetric ? `${location.pressure} hPa` : `${location.pressureImp} PSI`}/>
                 </div>
                 <div className="currentConditions">
                     <ConditionWidget icon="weatherPageIcon humidityIcon" condition="Humidity" value={`${location.humidity} %`}/>
-                    <ConditionWidget icon="weatherPageIcon windConditionIcon" condition="Wind" value={`${Math.round(location.windSpeed * 3.6 * 100) / 100} km/h ${direction}`}/>
-                    <ConditionWidget icon="weatherPageIcon visibilityIcon" condition="Visibility" value={`${location.visibility} km`}/>
+                    <ConditionWidget icon="weatherPageIcon windConditionIcon" condition="Wind" value={isMetric ? `${Math.round(location.windSpeed * 3.6 * 100) / 100} km/h ${direction}` : `${Math.round(location.windSpeed * 2.237 * 100) / 100} mph ${direction}`}/>
+                    <ConditionWidget icon="weatherPageIcon visibilityIcon" condition="Visibility" value={isMetric ? `${location.visibility} km` : `${location.visibilityImp} mi`}/>
                 </div>
                 <button className="weatherPageButton weatherPageHomeButton" onClick={() => goHome()}>Home</button>
                 <button className="weatherPageButton deleteButton" onClick={() => setDeleteClicked(true)}>Delete</button>

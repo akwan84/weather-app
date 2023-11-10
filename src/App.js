@@ -8,13 +8,6 @@ import { Route, Switch, useHistory } from 'react-router-dom';
 import dailyWeatherApi from './dailyWeatherApi/dailyWeatherApi';
 import WeatherPage from './weather/WeatherPage';
 
-/**
- * TODO:
- * - Add imperical units for pressure, wind, and visibility
- * - Capitalize condition description
- * - Deal with undefined states
- */
-
 function App() {
   const history = useHistory();
 
@@ -133,10 +126,11 @@ function App() {
         locations2[i].sunrise = responseData["sys"]["sunrise"];
         locations2[i].sunset = responseData["sys"]["sunset"];
         locations2[i].pressure = responseData["main"]["pressure"];
+        locations2[i].pressureImp = Math.round((responseData["main"]["pressure"] / 68.948) * 100) / 100;
         locations2[i].humidity = responseData["main"]["humidity"];
         locations2[i].windSpeed = responseData["wind"]["speed"];
-        locations2[i].windDir = responseData["wind"]["deg"];
         locations2[i].visibility = Math.round((responseData["visibility"] / 1000) * 100) / 100;
+        locations2[i].visibilityImp = Math.round((responseData["visibility"] / 1609) * 100) / 100;
         locations2[i].offset = responseData["timezone"];
         //locations2[i].condition = "Sno";
         //locations2[i].description = "few clouds"
@@ -190,6 +184,7 @@ function App() {
       sunrise: 0,
       sunset: 0,
       pressure: 0,
+      pressureImp: 0,
       humidity: 0,
       windSpeed: 0,
       windDir: 0,
