@@ -12,6 +12,7 @@ To install the project, you will require [Node Package Manager](https://www.npmj
 npm install
 ```
 
+
 Another thing you're going to need is an API key from OpenWeather, which you can do [here](https://openweathermap.org/price). Free tier is perfectly fine. 
 
 With that key, first copy the `.env.example` file and name it `.env`:
