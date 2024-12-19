@@ -58,9 +58,10 @@ function App() {
   }
 
   const getDailyWeather = async () => {
-    const locations2 = [...locationsCopy];
+    const locations2 = [...(locationsCopy ? locationsCopy : [])];
 
-    for(let i = 0; i < locationsCopy.length; i++){
+    const len = (locationsCopy ? locationsCopy.length : 0);
+    for(let i = 0; i < len; i++){
       try{
         const response = await dailyWeatherApi.get(`/weather?lat=${locationsCopy[i].lat}&lon=${locationsCopy[i].long}&appid=${apiKey}`)
         const responseData = response.data;
